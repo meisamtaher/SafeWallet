@@ -14,6 +14,7 @@ import {ReentrancyGuard} from "./common/ReentrancyGuard.sol";
 import {SmartAccountErrors} from "./common/Errors.sol";
 import {ECDSA} from "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import {IModule} from "./interfaces/IModule.sol";
+import {SafeTransfer} from "../SafeTransfer.sol";
 
 /**
  * @title SmartAccount - EIP-4337 compatible smart contract wallet.
@@ -33,7 +34,8 @@ contract SmartAccount is
     IERC165,
     ReentrancyGuard,
     SmartAccountErrors,
-    ISignatureValidator
+    ISignatureValidator,
+    SafeTransfer
 {
     using ECDSA for bytes32;
     using LibAddress for address;
