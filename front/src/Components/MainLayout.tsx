@@ -5,7 +5,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import Logo from '../assets/react.svg';
+import Logo from '../assets/SurpayLogo.png'
 import { Label } from '@mui/icons-material';
 import SocialLogin from "@biconomy/web3-auth"
 import { ChainId } from "@biconomy/core-types";
@@ -15,7 +15,7 @@ import { BiconomySmartAccount,BiconomySmartAccountConfig, DEFAULT_ENTRYPOINT_ADD
 import { IPaymaster, BiconomyPaymaster,} from '@biconomy/paymaster'
 import Counter from './Counter';
 
-const pages = ['Send'];
+const pages = ['Send', 'Escrow', 'Paymaster'];
 
 const bundler: IBundler = new Bundler({
   bundlerUrl: 'https://bundler.biconomy.io/api/v2/5/nJPK7B3ru.dd7f7861-190d-41bd-af80-6877f74b8f44', // you can get this value from biconomy dashboard.     
@@ -26,14 +26,18 @@ const bundler: IBundler = new Bundler({
 const paymaster: IPaymaster = new BiconomyPaymaster({
   paymasterUrl: 'https://paymaster.biconomy.io/api/v1/5/XoAFWgAVQ.67c786ef-58ec-4aa3-a2a9-d45b969766bf'
 })
-function MainLayout() {
+interface Props {
+  smartAccount: BiconomySmartAccount
+  setSmartAccount: any
+  setProvider: any
+  provider: any
+}
+
+function MainLayout ({ smartAccount, provider, setSmartAccount, setProvider } : Props) {
   const navigate = useNavigate();
-  const [smartAccount, setSmartAccount] = useState<any>(null)
   const [interval, enableInterval] = useState(false)
   const sdkRef = useRef<SocialLogin | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
-  const [provider, setProvider] = useState<any>(null);
-
   useEffect(() => {
     let configureLogin:any
     if (interval) {
@@ -127,27 +131,23 @@ function MainLayout() {
     if(key == "Send"){
       navigate("/Send");
     }
+    else if(key == "Escrow"){
+      navigate("/Escrow");
+    }
+    else if(key == "Paymaster"){
+      navigate("/Paymaster");
+    }
   };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
-  useEffect(() => {
-    if (address) getBalance(address);
-  }, [address]);
   
   return (
     <AppBar position="static" style={{ background: "linear-gradient(269.67deg, #CCE1FA -10.61%, #C6EEEA 113.26%)" }} >
       <Container maxWidth="xl" >
         <Toolbar disableGutters >
-      {/* {
-        !!smartAccount && (
-          <div className="buttonWrapper">
-            <Counter smartAccount={smartAccount} provider={provider} />
-          </div>
-        )
-      } */}
+
           <img src={Logo} width={40} onClick={handleLogoClick} />
           <Box  sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (

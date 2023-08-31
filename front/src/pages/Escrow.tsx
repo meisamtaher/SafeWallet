@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { BiconomySmartAccount} from "@biconomy/account"
+import { BiconomySmartAccount} from "../account"
 import {  IHybridPaymaster,SponsorUserOperationDto, PaymasterMode,} from '@biconomy/paymaster'
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
-import { Stack, SvgIcon } from '@mui/material';
+import { Stack, SvgIcon, Typography } from '@mui/material';
 import Counter from '../Components/Counter';
 import {useNavigate} from 'react-router-dom';
 
@@ -12,7 +12,7 @@ interface Props {
     provider: any
   }
 
-function SendPage({ smartAccount, provider } : Props) {
+function Escrow({ smartAccount, provider } : Props) {
     const navigate = useNavigate()
     const Transfer = ()=>{
     }
@@ -21,18 +21,11 @@ function SendPage({ smartAccount, provider } : Props) {
     }
   return (
     <Stack direction={'column'} padding = {5} alignItems={'center'} justifyContent={'center'} spacing={5}>
-        <TextField required id="RecieverAddress" label="Reciever Address"
-            placeholder="0xhj7802hasnJASKLdh..sa35d"
-            name= "name"
-            />
-
-        <Button sx={{width:300}} onClick={transfer}>Send</Button>
-        <Stack sx ={{ width:"100%"}} direction={'row'} padding={5} justifyContent={'center'}>
-            <Stack sx ={{width:"100%"}} direction={'column'} spacing={5} paddingTop={10}>
-            </Stack>
-        </Stack>
+      <Typography>
+        This page is not Implemented Yet
+      </Typography>
     </Stack>
   );
 }
   
-export default SendPage;
+export default Escrow;
