@@ -8,7 +8,7 @@ import Counter from '../Components/Counter';
 import {useNavigate} from 'react-router-dom';
 
 interface Props {
-    smartAccount: BiconomySmartAccount
+    smartAccount: any
     provider: any
   }
 

@@ -27,7 +27,7 @@ const paymaster: IPaymaster = new BiconomyPaymaster({
   paymasterUrl: 'https://paymaster.biconomy.io/api/v1/5/XoAFWgAVQ.67c786ef-58ec-4aa3-a2a9-d45b969766bf'
 })
 interface Props {
-  smartAccount: BiconomySmartAccount
+  smartAccount: any
   setSmartAccount: any
   setProvider: any
   provider: any

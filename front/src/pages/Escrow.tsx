@@ -14,11 +14,6 @@ interface Props {
 
 function Escrow({ smartAccount, provider } : Props) {
     const navigate = useNavigate()
-    const Transfer = ()=>{
-    }
-    const transfer = ()=>{
-      smartAccount.transfer
-    }
   return (
     <Stack direction={'column'} padding = {5} alignItems={'center'} justifyContent={'center'} spacing={5}>
       <Typography>
