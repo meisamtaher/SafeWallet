@@ -1,3 +1,10 @@
-# SafeWallet
-this is a wallet made by Account Abstraction that you can transfer tokens safely 
-This project is under developement Yet 
+![Surepay LOGO](https://green-enthusiastic-mite-198.mypinata.cloud/ipfs/QmSj1rEkNxw3XGHwndVtREKCcNEunXMVSieSXm9BLzGd2i)
+
+# Surepay
+
+Surepay is a wallet that wants to address the problem of sending tokens to the wrong addresses
+
+### Installation
+1. Clone the repository: `git clone https://github.com/meisamtaher/Surepay.git`
+
+
