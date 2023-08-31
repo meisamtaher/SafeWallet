@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import { NodeGlobalsPolyfillPlugin } from '@esbuild-plugins/node-globals-polyfill'
 
 export default defineConfig({
+  base: "/Surepay",
   plugins: [react()],
   optimizeDeps: {
     esbuildOptions: {
