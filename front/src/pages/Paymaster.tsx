@@ -11,6 +11,7 @@ interface Props {
     smartAccount: any
     provider: any
   }
+  
 
 function Paymaster({ smartAccount, provider } : Props) {
     const navigate = useNavigate()
